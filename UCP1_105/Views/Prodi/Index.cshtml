@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UCP1_105.Models.Prodi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Program Studi</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaProdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMatkulNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaProdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMatkulNavigation.IdMatkul)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdProdi"><i class="fa fa-marker fa-lg"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdProdi"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProdi"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
